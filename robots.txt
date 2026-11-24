@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nirvikthapaoffical-dev.github.io/nirvik-portfolio/sitemap.xml
