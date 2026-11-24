@@ -463,3 +463,101 @@ button:hover,
     }
 
 }
+
+/* =====================================
+   NIRVIK PORTFOLIO — FLOATING DESIGN
+   ===================================== */
+
+/* Smooth movement */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Floating hero and profile images */
+.hero img,
+.hero-image,
+.profile-image,
+.portrait,
+.floating-image {
+    animation: portfolioFloat 5s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* Floating animation */
+@keyframes portfolioFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+/* Modern floating project cards */
+.project-card,
+.design-card,
+.project,
+.card {
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+    transform-style: preserve-3d;
+}
+
+/* 3D hover effect */
+.project-card:hover,
+.design-card:hover,
+.project:hover,
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.10);
+}
+
+/* Images become slightly larger on hover */
+.project-card img,
+.design-card img,
+.project img,
+.card img {
+    transition: transform 0.6s ease;
+}
+
+.project-card:hover img,
+.design-card:hover img,
+.project:hover img,
+.card:hover img {
+    transform: scale(1.04);
+}
+
+/* Smooth buttons */
+button,
+.btn,
+a.button {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover,
+.btn:hover,
+a.button:hover {
+    transform: translateY(-3px);
+}
+
+/* Smooth links */
+a {
+    transition: color 0.3s ease;
+}
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
