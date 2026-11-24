@@ -1,10 +1,14 @@
 
-/* =========================================
-   NIRVIK THAPA — PREMIUM PORTFOLIO
-   Swiss Minimalism + Floating 3D
-========================================= */
+/* =====================================================
+   NIRVIK THAPA — PREMIUM CREATIVE PORTFOLIO
+   Swiss Minimalism | Floating 3D | Modern Editorial
+===================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* -----------------------------
+   01. DESIGN SYSTEM
+----------------------------- */
 
 :root {
     --bg: #f7f7f5;
@@ -14,9 +18,23 @@
     --line: rgba(0, 0, 0, 0.10);
     --accent: #b5ff69;
     --dark: #171717;
+
     --radius: 22px;
-    --shadow: 0 20px 60px rgba(0, 0, 0, 0.07);
+    --radius-small: 12px;
+
+    --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.07);
+
+    --shadow-hover:
+        0 35px 80px rgba(0, 0, 0, 0.13);
+
+    --transition:
+        all 0.4s cubic-bezier(.2,.8,.2,1);
 }
+
+/* -----------------------------
+   02. RESET
+----------------------------- */
 
 * {
     margin: 0;
@@ -26,19 +44,15 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 body {
     background: var(--bg);
     color: var(--text);
     font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
     overflow-x: hidden;
-    line-height: 1.6;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
 }
 
 img {
@@ -46,27 +60,53 @@ img {
     max-width: 100%;
 }
 
-/* =========================================
-   NAVIGATION
-========================================= */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.15;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--dark);
+}
+
+/* -----------------------------
+   03. NAVIGATION
+----------------------------- */
 
 header {
     width: 100%;
-    padding: 24px 7%;
+    min-height: 78px;
+    padding: 20px 7%;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(247, 247, 245, 0.85);
-    backdrop-filter: blur(18px);
+
+    background: rgba(247, 247, 245, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
     border-bottom: 1px solid var(--line);
 }
 
 header h2 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 24px;
+    font-size: 25px;
     font-weight: 700;
     letter-spacing: -1.5px;
 }
@@ -78,11 +118,12 @@ nav {
 }
 
 nav a {
+    position: relative;
+    color: var(--muted);
     font-size: 13px;
     font-weight: 600;
-    color: var(--muted);
-    transition: color 0.3s ease;
-    position: relative;
+
+    transition: color .3s ease;
 }
 
 nav a:hover {
@@ -92,29 +133,36 @@ nav a:hover {
 nav a::after {
     content: "";
     position: absolute;
-    bottom: -6px;
     left: 0;
+    bottom: -7px;
+
     width: 0;
-    height: 1px;
+    height: 2px;
+
     background: var(--text);
-    transition: width 0.3s ease;
+    transition: width .3s ease;
 }
 
 nav a:hover::after {
     width: 100%;
 }
 
-/* =========================================
-   MAIN HERO
-========================================= */
+/* -----------------------------
+   04. MAIN LAYOUT
+----------------------------- */
 
 main {
     width: 100%;
 }
 
+section {
+    position: relative;
+}
+
 .hero {
-    min-height: calc(100vh - 75px);
-    padding: 85px 7% 30px;
+    min-height: calc(100vh - 78px);
+    padding: 85px 7% 35px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -122,33 +170,40 @@ main {
 
 .hero-layout {
     display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
+    grid-template-columns: 1.3fr .7fr;
     align-items: center;
-    gap: 60px;
-    max-width: 1350px;
+    gap: 65px;
+
     width: 100%;
+    max-width: 1350px;
     margin: auto;
 }
+
+/* -----------------------------
+   05. HERO TEXT
+----------------------------- */
 
 .hero-copy {
     animation: fadeUp 1s ease both;
 }
 
 .hero-copy > p:first-child {
+    margin-bottom: 28px;
+
+    color: var(--muted);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 3px;
-    margin-bottom: 28px;
-    color: var(--muted);
 }
 
 .hero-copy h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(55px, 7vw, 100px);
-    line-height: 0.98;
-    letter-spacing: -6px;
-    font-weight: 600;
     margin-bottom: 35px;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(55px, 7vw, 105px);
+    font-weight: 600;
+    line-height: .98;
+    letter-spacing: -6px;
 }
 
 .hero-copy h1 span {
@@ -157,100 +212,139 @@ main {
 
 .intro {
     max-width: 520px;
+    margin-bottom: 30px;
+
+    color: var(--muted);
     font-size: 15px;
     line-height: 1.9;
-    color: var(--muted);
+
     white-space: pre-line;
-    margin-bottom: 30px;
 }
 
-.hero-button {
+/* -----------------------------
+   06. PREMIUM BUTTONS
+----------------------------- */
+
+.hero-button,
+.button,
+.btn {
     display: inline-flex;
-    padding: 15px 24px;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 25px;
+
+    border: 1px solid transparent;
+    border-radius: 50px;
+
     background: var(--dark);
     color: white;
+
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 1.3px;
-    border-radius: 50px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
 }
 
-.hero-button:hover {
+.hero-button:hover,
+.button:hover,
+.btn:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.17);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .16);
 }
 
-/* =========================================
-   FLOATING PORTRAIT
-========================================= */
+/* -----------------------------
+   07. FLOATING PROFILE
+----------------------------- */
 
 .hero-portrait {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 22px;
-    animation: float 5s ease-in-out infinite;
+
+    animation: portraitFloat 4s ease-in-out infinite;
+    will-change: transform;
 }
 
 .portrait-circle {
     width: min(340px, 100%);
     aspect-ratio: 1;
-    border-radius: 50%;
-    padding: 12px;
-    background: white;
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.10),
-        0 5px 20px rgba(0, 0, 0, 0.04);
-    transition: transform 0.5s ease;
-}
 
-.portrait-circle:hover {
-    transform: rotate(3deg) scale(1.035);
+    padding: 12px;
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, .12),
+        0 8px 25px rgba(0, 0, 0, .04);
+
+    transition:
+        transform .6s cubic-bezier(.2,.8,.2,1),
+        box-shadow .6s ease;
 }
 
 .portrait-circle img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
     border-radius: 50%;
 }
 
+.portrait-circle:hover {
+    transform: rotate(4deg) scale(1.045);
+
+    box-shadow:
+        0 40px 90px rgba(0, 0, 0, .18);
+}
+
 .hero-portrait > span {
+    color: var(--muted);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 2px;
-    color: var(--muted);
 }
 
-/* =========================================
-   SOCIAL ICONS
-========================================= */
+/* -----------------------------
+   08. SOCIAL ICONS
+----------------------------- */
 
 .social-links {
     display: flex;
-    gap: 16px;
     align-items: center;
+    gap: 15px;
     margin-top: 28px;
 }
 
 .social-links a {
-    width: 44px;
-    height: 44px;
+    width: 45px;
+    height: 45px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     border: 1px solid var(--line);
-    background: var(--surface);
     border-radius: 50%;
+
+    background: var(--surface);
     color: var(--text);
-    transition: all 0.35s ease;
+
+    transition: var(--transition);
 }
 
 .social-links a:hover {
+    transform: translateY(-7px) rotate(-5deg);
+
     background: var(--dark);
     color: white;
-    transform: translateY(-5px);
+
     box-shadow: var(--shadow);
 }
 
@@ -259,95 +353,158 @@ main {
     height: 19px;
 }
 
-/* =========================================
-   BOTTOM INFORMATION
-========================================= */
+/* -----------------------------
+   09. HERO FOOTER
+----------------------------- */
 
 .hero-bottom {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    border-top: 1px solid var(--line);
+
+    margin-top: 85px;
     padding-top: 24px;
-    margin-top: 90px;
+
+    border-top: 1px solid var(--line);
 }
 
 .hero-bottom span {
+    color: var(--muted);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 1.5px;
+}
+
+/* -----------------------------
+   10. PAGE HEADINGS
+----------------------------- */
+
+.page-title {
+    padding: 100px 7% 55px;
+}
+
+.page-title h1 {
+    max-width: 950px;
+    font-size: clamp(45px, 8vw, 90px);
+    letter-spacing: -4px;
+}
+
+.page-title p {
+    max-width: 600px;
+    margin-top: 20px;
     color: var(--muted);
 }
 
-/* =========================================
-   GENERAL PAGE SECTIONS
-========================================= */
-
-section:not(.hero) {
-    position: relative;
-}
-
-h1, h2, h3 {
-    font-family: 'Space Grotesk', sans-serif;
-}
-
-button, .button {
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-/* Common project cards */
+/* -----------------------------
+   11. FLOATING PROJECT CARDS
+----------------------------- */
 
 .project-card,
-.card,
-.design-card {
-    background: var(--surface);
+.design-card,
+.card {
+    position: relative;
+    overflow: hidden;
+
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.035);
+
+    background: var(--surface);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, .045);
+
     transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        box-shadow .5s ease;
 }
 
 .project-card:hover,
-.card:hover,
-.design-card:hover {
-    transform: translateY(-9px);
-    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.09);
+.design-card:hover,
+.card:hover {
+    transform: translateY(-13px) scale(1.015);
+
+    box-shadow: var(--shadow-hover);
 }
 
-/* Common buttons */
-
-button,
-.button {
-    border-radius: 50px;
+.project-card img,
+.design-card img,
+.card img {
+    transition: transform .7s cubic-bezier(.2,.8,.2,1);
 }
 
-button:hover,
-.button:hover {
-    transform: translateY(-3px);
+.project-card:hover img,
+.design-card:hover img,
+.card:hover img {
+    transform: scale(1.055);
 }
 
-/* =========================================
-   ANIMATIONS
-========================================= */
+/* -----------------------------
+   12. PROJECT CARD CONTENT
+----------------------------- */
 
-@keyframes float {
+.project-card h2,
+.project-card h3,
+.design-card h2,
+.design-card h3,
+.card h2,
+.card h3 {
+    margin: 20px;
+    font-size: 23px;
+    letter-spacing: -.7px;
+}
+
+.project-card p,
+.design-card p,
+.card p {
+    margin: 0 20px 22px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* -----------------------------
+   13. IMAGE PRESENTATION
+----------------------------- */
+
+img {
+    transition: transform .6s ease;
+}
+
+.project-card img,
+.design-card img,
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* -----------------------------
+   14. FLOATING DECORATIVE IMAGES
+----------------------------- */
+
+.floating-image,
+.profile-image {
+    animation: portraitFloat 5s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* -----------------------------
+   15. ANIMATIONS
+----------------------------- */
+
+@keyframes portraitFloat {
     0%, 100% {
         transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-15px);
+        transform: translateY(-18px);
     }
 }
 
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(35px);
     }
 
     to {
@@ -356,9 +513,35 @@ button:hover,
     }
 }
 
-/* =========================================
-   RESPONSIVE DESIGN
-========================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* -----------------------------
+   16. LINKS AND INTERACTIONS
+----------------------------- */
+
+a {
+    transition: color .3s ease;
+}
+
+button {
+    transition: var(--transition);
+}
+
+button:hover {
+    transform: translateY(-3px);
+}
+
+/* -----------------------------
+   17. RESPONSIVE TABLET
+----------------------------- */
 
 @media (max-width: 900px) {
 
@@ -386,8 +569,11 @@ button:hover,
     .portrait-circle {
         width: min(280px, 100%);
     }
-
 }
+
+/* -----------------------------
+   18. RESPONSIVE MOBILE
+----------------------------- */
 
 @media (max-width: 650px) {
 
@@ -405,7 +591,7 @@ button:hover,
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 15px;
+        gap: 14px;
     }
 
     nav a {
@@ -413,6 +599,7 @@ button:hover,
     }
 
     .hero {
+        min-height: auto;
         padding: 55px 7% 25px;
     }
 
@@ -449,176 +636,27 @@ button:hover,
         font-size: 9px;
     }
 
+    .page-title {
+        padding: 65px 7% 35px;
+    }
+
+    .page-title h1 {
+        letter-spacing: -2px;
+    }
 }
+
+/* -----------------------------
+   19. REDUCED MOTION
+----------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
 
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+        animation: none !important;
+        transition: none !important;
         scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
     }
 
-}
-
-/* =====================================
-   NIRVIK PORTFOLIO — FLOATING DESIGN
-   ===================================== */
-
-/* Smooth movement */
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    overflow-x: hidden;
-}
-
-/* Floating hero and profile images */
-.hero img,
-.hero-image,
-.profile-image,
-.portrait,
-.floating-image {
-    animation: portfolioFloat 5s ease-in-out infinite;
-    will-change: transform;
-}
-
-/* Floating animation */
-@keyframes portfolioFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-14px);
-    }
-}
-
-/* Modern floating project cards */
-.project-card,
-.design-card,
-.project,
-.card {
-    transition:
-        transform 0.45s ease,
-        box-shadow 0.45s ease;
-    transform-style: preserve-3d;
-}
-
-/* 3D hover effect */
-.project-card:hover,
-.design-card:hover,
-.project:hover,
-.card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.10);
-}
-
-/* Images become slightly larger on hover */
-.project-card img,
-.design-card img,
-.project img,
-.card img {
-    transition: transform 0.6s ease;
-}
-
-.project-card:hover img,
-.design-card:hover img,
-.project:hover img,
-.card:hover img {
-    transform: scale(1.04);
-}
-
-/* Smooth buttons */
-button,
-.btn,
-a.button {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-button:hover,
-.btn:hover,
-a.button:hover {
-    transform: translateY(-3px);
-}
-
-/* Smooth links */
-a {
-    transition: color 0.3s ease;
-}
-
-/* Accessibility: respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* =========================================
-   STRONG FLOATING EFFECT — ACTUAL ELEMENTS
-========================================= */
-
-/* Profile section */
-.hero-portrait {
-    animation: nirvikFloating 3.5s ease-in-out infinite !important;
-}
-
-.portrait-circle {
-    box-shadow:
-        0 30px 60px rgba(0, 0, 0, 0.13),
-        0 10px 25px rgba(0, 0, 0, 0.06);
-    transition: box-shadow 0.4s ease, transform 0.4s ease;
-}
-
-.portrait-circle:hover {
-    box-shadow: 0 35px 75px rgba(0, 0, 0, 0.20);
-}
-
-/* Project cards */
-.project-card,
-.design-card,
-.card {
-    transform: translateY(0);
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
-}
-
-.project-card:hover,
-.design-card:hover,
-.card:hover {
-    transform: translateY(-14px) scale(1.025);
-    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.14);
-}
-
-/* Project image hover */
-.project-card img,
-.design-card img,
-.card img {
-    transition: transform 0.6s ease;
-}
-
-.project-card:hover img,
-.design-card:hover img,
-.card:hover img {
-    transform: scale(1.06);
-}
-
-/* Floating animation */
-@keyframes nirvikFloating {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-22px);
-    }
 }
